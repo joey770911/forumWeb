@@ -1,0 +1,16 @@
+extends layout
+block content
+	div.div_forum
+		input(type="text" ,id="msg")
+		button(type="button" id="btn_submit") 送出
+		div 
+			table
+				each val in data
+					tr
+						td #{val.account}
+						td #{val.name}
+						td #{val.password}	  
+	script.
+		$(function(){
+			console.dir("test");
+		})
