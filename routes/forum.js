@@ -6,10 +6,18 @@ var conn = require('../routes/mysql_conn');
 router.get('/', function(req, res) {
 	var sql = "SELECT * FROM tb_member";
 	conn.query(sql,function(err, rows, fields) {
+		console.dir(rows[0].account);
 		console.dir(rows);
 		res.render('forum', {title:'聊天室',data:rows});
 	});
 	
 });
+
+router.getMsg = function(req, res){
+	var sql = "SELECT * FROM tb_member";
+	conn.query(sql,function(err, rows, fields) {
+		res.send(rows);
+	});
+}
 
 module.exports = router;

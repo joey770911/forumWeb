@@ -36,7 +36,10 @@ app.use('/users', users);
 app.use('/forum', forum);
 app.use('/login', login); //
 app.get('/login/chk', login.ChkAccount);
-
+app.use('/forum/get', forum.getMsg);
+app.all('/', function(req,res){
+    res.send("發生錯誤!!~");
+});
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
