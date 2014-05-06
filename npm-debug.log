@@ -2,8 +2,8 @@
 1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'start' ]
-2 info using npm@1.4.8
-3 info using node@v0.10.27
+2 info using npm@1.4.3
+3 info using node@v0.10.26
 4 verbose node symlink C:\Program Files\nodejs\\node.exe
 5 verbose run-script [ 'prestart', 'start', 'poststart' ]
 6 info prestart application-name@0.0.1
@@ -22,8 +22,8 @@
 11 error There is likely additional logging output above.
 12 error System Windows_NT 6.1.7601
 13 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-14 error cwd D:\forumWeb
-15 error node -v v0.10.27
-16 error npm -v 1.4.8
+14 error cwd C:\Users\fz083\Documents\GitHub\forumWeb
+15 error node -v v0.10.26
+16 error npm -v 1.4.3
 17 error code ELIFECYCLE
 18 verbose exit [ 1, true ]

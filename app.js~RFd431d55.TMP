@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 //引用登入控制器
 var login = require('./routes/login'); 
 var forum = require('./routes/forum');
-
+var index = require('./routes/index');
 //引用登入控制器
 
 
@@ -29,13 +29,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-//URL路由導向
 
+app.use('/', index);
 app.use('/forum', forum);
-app.use('/login', login); //
+app.get('/login', login); //
 app.post('/login/chk', login.ChkAccount);
 app.use('/forum/get', forum.getMsg);
-//URL路由導向
+
+
+
+
 
 
 
