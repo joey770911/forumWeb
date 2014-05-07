@@ -1,12 +1,9 @@
 extends layout
+
 block content
-	.container 
+	.container
 		form(class="form-signin" ,role="form" ,method="post" ,action="/login/chk")
 			h2(class="form-signin-heading") 請輸入帳號密碼
 			input(type='text', class='form-control', name='account',placeholder="帳號",required,autofocus)
 			input(type='password', class='form-control', name='password',placeholder="密碼",required)
 			button(type="submit" ,class="btn btn-lg btn-primary btn-block") 登入
-	script.
-		if(true) {
-			console.dir("Wecome");
-		}

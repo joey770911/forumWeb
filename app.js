@@ -7,14 +7,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //引用套件
 
-//引用登入控制器
+//宣告登入控制器
 var login = require('./routes/login'); 
 var forum = require('./routes/forum');
+var main = require('./routes/main');
+//登入控制器
 
-//引用登入控制器
+//主程式物件宣告
+var app = express();
 
 
-var app = express(); //主程式物件宣告
 // 設定樣板引擎
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -24,19 +26,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// 設定樣板引擎
-
-
-
+// 樣板引擎
 
 //URL路由導向
-
-app.use('/forum', forum);
 app.use('/login', login); //
-app.post('/login/chk', login.ChkAccount);
+app.post('/login/chk', login.AccountChk);
+app.use('/main', main);
+app.use('/forum', forum);
 app.use('/forum/get', forum.getMsg);
 //URL路由導向
-
 
 
 
@@ -51,7 +49,6 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
-
 /// error handlers
 
 // development error handler
@@ -75,4 +72,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
 module.exports = app;
