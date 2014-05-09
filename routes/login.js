@@ -20,7 +20,7 @@ router.AccountChk = function(req, res) {
 		if(rows.length) {
 			console.dir(rows);
 			req.session.memberAccount = rows.account;
-			console.dir(res.session);
+			console.dir(req.session)
 			res.render('main', { title: '服務平台' });
 		} else {
 			res.render('login', { title: '驗證帳號' ,msg:{code:100,text:"帳號密碼錯誤"}});
