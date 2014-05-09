@@ -8,11 +8,11 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 //引用套件
 
-//宣告登入控制器
+//宣告控制器
 var login = require('./routes/login'); 
 var forum = require('./routes/forum');
 var main = require('./routes/main');
-//登入控制器
+//控制器
 
 //主程式物件宣告
 var app = express();
@@ -25,7 +25,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(session({ secret: 'keyboardaacat', key: 'sid', cookie: { secure: true }}))
+app.use(session({ secret: 'keyboardaacat', key: 'sid', cookie: { secure: false }}))
 app.use(express.static(path.join(__dirname, 'public')));
 // 設定伺服器參數
 

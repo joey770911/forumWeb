@@ -5,7 +5,6 @@ var md5 = require('MD5');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-	req.session = {pid:"asdasdsad"};
 	res.render('login', { title: '登入頁面' });
 });
 
@@ -19,6 +18,9 @@ router.AccountChk = function(req, res) {
 			res.send("資料庫連線錯誤");
 		} 		
 		if(rows.length) {
+			console.dir(rows);
+			req.session.memberAccount = rows.account;
+			console.dir(res.session);
 			res.render('main', { title: '服務平台' });
 		} else {
 			res.render('login', { title: '驗證帳號' ,msg:{code:100,text:"帳號密碼錯誤"}});

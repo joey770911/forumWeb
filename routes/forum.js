@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 	conn.query(sql,function(err, rows, fields) {
 		
 	});*/
-	res.render('forum', {title:'聊天室',str:req.session.pid});
+	res.render('forum', {title:'聊天室'});
 });
 
 
