@@ -19,7 +19,7 @@ router.AccountChk = function(req, res) {
 		} 		
 		if(rows.length) {
 			console.dir(rows);
-			req.session.memberAccount = rows.account;
+			req.session.memberAccount = rows[0].account;
 			console.dir(req.session)
 			res.render('main', { title: '服務平台' });
 		} else {

@@ -8,6 +8,7 @@ router.get('/', function(req, res) {
 	conn.query(sql,function(err, rows, fields) {
 		
 	});*/
+	console.dir(req.session)
 	res.render('forum', {title:'聊天室'});
 });
 
