@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 	res.render('login', { title: '登入頁面' });
 });
 
-//帳號密碼認證
+//登入帳號密碼認證
 router.AccountChk = function(req, res) {
 	var account = req.param('account');
 	var password = md5(req.param('password'));
@@ -19,7 +19,14 @@ router.AccountChk = function(req, res) {
 		} 		
 		if(rows.length) {
 			console.dir(rows);
-			req.session.memberAccount = rows[0].account;
+			req.session.Account = rows[0].account;
+			req.session.username = rows[0].name;
+			if(rows[0].account === 'joey')
+				req.session.isManage = 1;
+			else
+				req.session.isManage = 0;
+
+
 			console.dir(req.session)
 			res.render('main', { title: '服務平台' });
 		} else {
@@ -27,5 +34,14 @@ router.AccountChk = function(req, res) {
 		}	
 	});
 }
+
+//登出刪除資料
+router.logout = function(req,res) {
+	Session.destroy(function(){
+		
+	});
+}
+
+
 
 module.exports = router;

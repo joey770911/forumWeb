@@ -39,10 +39,13 @@ app.use('/forum/get', forum.getMsg);
 
 ///錯誤控制
 app.all('*', function(req,res){
-    res.send("404 Not Found Page!!~");
+    if(req.session.Account == '')
+        res.render('main', { title: '服務平台' });
+    else 
+        res.send("404 Not Found Page!!~");
 });
 
-/// catch 404 and forwarding to error handler
+/// 找不到網頁404錯誤
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;

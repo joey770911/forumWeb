@@ -6,5 +6,4 @@ router.get('/', function(req, res) {
 	res.render('main', {title:'首頁'});
 });
 
-
 module.exports = router;
